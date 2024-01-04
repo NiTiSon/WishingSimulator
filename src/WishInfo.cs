@@ -1,4 +1,6 @@
-﻿namespace WishingSimulator;
+﻿using System;
+
+namespace WishingSimulator;
 
 public record class WishInfo(DateTime TimeUTC, Item Item, uint Pity, uint WishNumber, bool IsGuaranteed, bool IsWon5050)
 {

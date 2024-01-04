@@ -1,4 +1,6 @@
-﻿namespace WishingSimulator;
+﻿using System;
+
+namespace WishingSimulator;
 
 internal class Program
 {

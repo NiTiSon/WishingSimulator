@@ -1,4 +1,7 @@
-﻿namespace WishingSimulator;
+﻿using System;
+using System.Collections.Generic;
+
+namespace WishingSimulator;
 
 public class Item
 {
