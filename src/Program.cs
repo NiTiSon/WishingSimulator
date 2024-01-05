@@ -14,8 +14,8 @@ internal class Program
 			Characters.Dekoto.Guaranteed,
 			
 			// 4-star guaranteed weapon
-			Items.OmniBow.Guaranteed,
-			
+			Items.BlacksmithBend.Guaranteed,
+
 			// 4-star guaranteed characters
 			Characters.Roshi.Guaranteed,
 			Characters.Sorra.Guaranteed

@@ -1,10 +1,12 @@
 ﻿namespace WishingSimulator;
 
-public sealed class CharacterItem : Item
+public class WeaponItem : Item
 {
-	public CharacterItem(uint rarity, string name) : base(rarity, name)
-	{
+	public WeaponKind Kind { get; }
 
+	public WeaponItem(uint rarity, string name, WeaponKind kind) : base(rarity, name)
+	{
+		Kind = kind;
 	}
 
 	public override Instance CreateInstance()

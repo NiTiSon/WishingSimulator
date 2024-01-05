@@ -1,17 +1,16 @@
-﻿
-
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace WishingSimulator;
 
 public sealed class Account
 {
-	private Dictionary<BannerKind, BannerInfo> bannersData;
+	private readonly Dictionary<BannerKind, BannerInfo> bannersData;
+	private readonly List<Item.Instance> inventory;
 
 	public Account()
 	{
+		inventory = [];
 		bannersData = [];
 	}
 
@@ -20,11 +19,13 @@ public sealed class Account
 		if (bannersData.TryGetValue(from.Kind, out var wishes))
 		{
 			wishes.Add(wish);
+			inventory.Add(wish.Item.CreateInstance());
 		}
 		else
 		{
 			BannerInfo wishesInfo = new();
 			wishesInfo.Add(wish);
+			inventory.Add(wish.Item.CreateInstance());
 
 			bannersData[from.Kind] = wishesInfo;
 		}
