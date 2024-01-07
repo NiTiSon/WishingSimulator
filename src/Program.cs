@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Linq;
 
 namespace WishingSimulator;
 
-internal class Program
+internal sealed class Program
 {
 	static void Main(string[] args)
 	{
@@ -27,14 +28,16 @@ internal class Program
 		for (int i = 0; i < 90; i++)
 		{
 			WishInfo wish = characterBanner.Wish(user);
-			
-			if (wish.Item.Rarity == 5)
+
+			if (wish.Item.Rarity == 6)
+				Console.ForegroundColor = ConsoleColor.Cyan;
+			else if (wish.Item.Rarity == 5)
 				Console.ForegroundColor = ConsoleColor.Yellow;
 			else if (wish.Item.Rarity == 4)
 				Console.ForegroundColor = ConsoleColor.Magenta;
 
 			char l = ' ';
-			if (wish.Item.Rarity > 3)
+			if (wish.Item.Rarity is > 3 and not 6)
 			{
 				if (wish.IsGuaranteed)
 					l = 'G';
@@ -50,5 +53,9 @@ internal class Program
 		}
 
 		Console.WriteLine("└──────┴──────┴──────┴─────────────────────────");
+		Console.WriteLine($"6*: {user.Inventory.Count(i => i.Of.Rarity == 6)}");
+		Console.WriteLine($"5*: {user.Inventory.Count(i => i.Of.Rarity == 5)}");
+		Console.WriteLine($"4*: {user.Inventory.Count(i => i.Of.Rarity == 4)}");
+		Console.WriteLine($"3*: {user.Inventory.Count(i => i.Of.Rarity == 3)}");
 	}
 }

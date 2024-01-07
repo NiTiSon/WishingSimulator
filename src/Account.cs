@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace WishingSimulator;
@@ -13,6 +14,9 @@ public sealed class Account
 		inventory = [];
 		bannersData = [];
 	}
+
+	public ImmutableArray<Item.Instance> Inventory
+		=> inventory.ToImmutableArray();
 
 	public void AddWish(Banner from, WishInfo wish)
 	{

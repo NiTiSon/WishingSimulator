@@ -35,9 +35,13 @@ public abstract class Item
 	{
 		protected readonly Item instanceOf;
 
+		public Item Of
+			=> instanceOf;
+
 		protected Instance(Item instanceOf)
 		{
 			this.instanceOf = instanceOf;
 		}
+
 	}
 }
